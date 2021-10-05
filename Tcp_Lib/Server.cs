@@ -8,7 +8,7 @@ namespace Tcp_Lib
     public class Server : Host
     {
         private TcpListener _ServerSocket { get; init; }
-        private Server()
+        public Server()
         {
             GetCurrentIpAddress();
             _ServerSocket = new TcpListener(CurrentIpAddress, Host.DefaultPort);
@@ -19,6 +19,13 @@ namespace Tcp_Lib
             
         }
 
+        ~Server()
+        {
+#pragma warning disable 4014
+            DisconnectAsync();
+#pragma warning restore 4014
+        }
+
         public static Server Instance { get; } = new Server();
 
         public override void Dispose()
@@ -26,12 +33,12 @@ namespace Tcp_Lib
             throw new NotImplementedException();
         }
 
-        public override async Task<IAsyncResult> Reload()
+        public override async Task Reload()
         {
             throw new NotImplementedException();
         }
 
-        public override async Task<IAsyncResult> Stop()
+        public override async Task Stop()
         {
             throw new NotImplementedException();
         }
@@ -46,12 +53,12 @@ namespace Tcp_Lib
             throw new NotImplementedException();
         }
 
-        public override async Task<IAsyncResult> ConnectAsync()
+        public override async Task ConnectAsync()
         {
             throw new NotImplementedException();
         }
 
-        public override async Task<IAsyncResult> DisconnectAsync()
+        public override async Task DisconnectAsync()
         {
             throw new NotImplementedException();
         }

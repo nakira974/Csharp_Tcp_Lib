@@ -18,6 +18,13 @@ namespace Tcp_Lib
             _ClientSocket.SendTimeout = DefaultSendTimeOut;
         }
 
+        ~Client()
+        {
+#pragma warning disable 4014
+            DisconnectAsync();
+#pragma warning restore 4014
+        }
+
         public static IHost Instance { get; } = new Client();
 
         public override void Dispose()
