@@ -20,7 +20,9 @@ namespace Tcp_Lib
         protected void GetCurrentIpAddress()
         {
             string hostName = Dns.GetHostName();
+#pragma warning disable 618
             CurrentIpAddress = Dns.GetHostByName(hostName).AddressList[0];
+#pragma warning restore 618
         }
         public abstract void Dispose();
         public abstract Task Reload();

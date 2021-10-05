@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="Add destructor">
+    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="Modify Host class, IHost interface =&gt; Send &amp;&amp; Receive">
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/Host.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Host.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/IHost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/IHost.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Server.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/IHost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Client.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Host.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/max/RiderProjects/Tcp_Lib/Tcp_Lib/Client.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/max/RiderProjects/Tcp_Lib/Tcp_Lib/Server.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1z63TFKLV3pxvQqSfqiq2Ih165q" />
@@ -50,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633454717830</updated>
-      <workItem from="1633454725694" duration="5194000" />
+      <workItem from="1633454725694" duration="5522000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1633458955795</created>
@@ -66,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633459303741</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Modify Host class, IHost interface =&gt; Send &amp;&amp; Receive">
+      <created>1633460210977</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633460210977</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +96,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="First commit" />
     <MESSAGE value="Add destructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add destructor" />
+    <MESSAGE value="Modify Host class, IHost interface =&gt; Send &amp;&amp; Receive" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify Host class, IHost interface =&gt; Send &amp;&amp; Receive" />
   </component>
 </project>
