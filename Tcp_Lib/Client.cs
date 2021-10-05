@@ -17,6 +17,7 @@ namespace Tcp_Lib
             _ClientSocket.ReceiveBufferSize = DefaultReceiveBufferSize;
             _ClientSocket.ReceiveTimeout = DefaultReceiveTimeOut;
             _ClientSocket.SendTimeout = DefaultSendTimeOut;
+            
         }
 
         ~Client()
@@ -26,7 +27,7 @@ namespace Tcp_Lib
 #pragma warning restore 4014
         }
 
-        public static IHost Instance { get; } = new Client();
+        public static IHost<Host> Instance { get; } = new Client();
 
         public override void Dispose()
         {

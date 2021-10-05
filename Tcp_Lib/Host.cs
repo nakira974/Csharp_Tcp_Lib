@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Tcp_Lib
 {
-    public abstract class Host : IHost
+    public abstract class Host : IHost<Host>
     {
         protected const int DefaultSendTimeOut = 3600;
         protected const int DefaultReceiveTimeOut = 10000;

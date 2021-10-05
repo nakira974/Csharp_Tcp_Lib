@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Tcp_Lib
 {
-    public interface IHost : IDisposable
+    public interface IHost<T> : IDisposable
     {      
         public Task Start();
         public Task Reload();

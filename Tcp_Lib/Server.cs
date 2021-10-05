@@ -26,7 +26,7 @@ namespace Tcp_Lib
 #pragma warning restore 4014
         }
 
-        public static Server Instance { get; } = new Server();
+        public static IHost<Host> Instance { get; } = new Server();
 
         public override void Dispose()
         {
