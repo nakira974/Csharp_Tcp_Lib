@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 namespace Tcp_Lib
 {
     public interface IHost : IDisposable
-    {
+    {      
+        public Task Start();
         public Task Reload();
         public Task Stop();
         public Task<IAsyncResult> SendByteAsync(string jsonContent);

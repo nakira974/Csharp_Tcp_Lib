@@ -32,8 +32,13 @@ namespace Tcp_Lib
         {
             throw new NotImplementedException();
         }
-        
-        
+
+        public override async Task Start()
+        {
+            throw new NotImplementedException();
+        }
+
+
         public override async Task Reload()
         {
             throw new NotImplementedException();

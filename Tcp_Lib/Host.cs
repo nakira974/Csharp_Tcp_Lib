@@ -25,6 +25,7 @@ namespace Tcp_Lib
 #pragma warning restore 618
         }
         public abstract void Dispose();
+        public abstract Task Start();
         public abstract Task Reload();
         public abstract Task Stop();
         public async Task<IAsyncResult> SendByteAsync(string jsonContent)
