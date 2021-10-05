@@ -19,7 +19,7 @@ namespace Tcp_Lib
             
         }
 
-        ~Server()
+         ~Server()
         {
 #pragma warning disable 4014
             DisconnectAsync();
@@ -40,19 +40,9 @@ namespace Tcp_Lib
 
         public override async Task Stop()
         {
-            throw new NotImplementedException();
+            
         }
-
-        public override async Task<IAsyncResult> SendByteAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override async Task<IAsyncResult> ReceiveByteAsync()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public override async Task ConnectAsync()
         {
             throw new NotImplementedException();

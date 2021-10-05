@@ -25,8 +25,15 @@ namespace Tcp_Lib
         public abstract void Dispose();
         public abstract Task Reload();
         public abstract Task Stop();
-        public abstract Task<IAsyncResult> SendByteAsync();
-        public abstract Task<IAsyncResult> ReceiveByteAsync();
+        public async Task<IAsyncResult> SendByteAsync(string jsonContent)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> ReceiveByteAsync()
+        {
+            throw new NotImplementedException();
+        }
         public abstract Task ConnectAsync();
         public abstract Task DisconnectAsync();
     }

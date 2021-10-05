@@ -7,8 +7,8 @@ namespace Tcp_Lib
     {
         public Task Reload();
         public Task Stop();
-        public Task<IAsyncResult> SendByteAsync();
-        public Task<IAsyncResult> ReceiveByteAsync();
+        public Task<IAsyncResult> SendByteAsync(string jsonContent);
+        public Task<string> ReceiveByteAsync();
         public Task ConnectAsync();
         public Task DisconnectAsync();
 

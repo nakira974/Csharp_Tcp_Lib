@@ -7,6 +7,7 @@ namespace Tcp_Lib
 {
     public class Client : Host
     {
+        private Host _hostImplementation;
         private TcpClient _ClientSocket { get; init; }
         public IPAddress ServerAddress { get; set; }
         public Client()
@@ -42,16 +43,7 @@ namespace Tcp_Lib
         {
             throw new NotImplementedException();
         }
-
-        public override async Task<IAsyncResult> SendByteAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override async Task<IAsyncResult> ReceiveByteAsync()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public override async Task ConnectAsync()
         {
