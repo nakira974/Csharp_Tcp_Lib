@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Tcp_Lib
@@ -12,7 +13,7 @@ namespace Tcp_Lib
         public IPAddress ServerAddress { get; set; }
         public Client()
         {
-            _ClientSocket = new TcpClient(GetCurrentHostName(), DefaultPort);
+            _ClientSocket = new TcpClient();
             _ClientSocket.SendBufferSize = DefaultSendBufferSize;
             _ClientSocket.ReceiveBufferSize = DefaultReceiveBufferSize;
             _ClientSocket.ReceiveTimeout = DefaultReceiveTimeOut;
@@ -56,6 +57,25 @@ namespace Tcp_Lib
             try
             {
                 await _ClientSocket.ConnectAsync(ServerAddress, DefaultPort);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
+        }
+        
+        public async Task ConnectAsync(string ipAddress)
+        {
+            try
+            {  string author = "Maxime";
+                byte[] bytes = Encoding.ASCII.GetBytes(author);
+                await _ClientSocket.ConnectAsync(ipAddress, DefaultPort);
+                NetworkStream stream = _ClientSocket.GetStream();
+                stream.Write(bytes, 0, bytes.Length);
+
+
             }
             catch (Exception e)
             {

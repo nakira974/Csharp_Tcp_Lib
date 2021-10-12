@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace Tcp_Lib
         protected const int DefaultSendBufferSize = 1024;
         protected const int DefaultReceiveBufferSize = 4096;
         protected const int DefaultPort = 9001;
-        protected IPAddress CurrentIpAddress { get; set; }
+        public IPAddress CurrentIpAddress { get; set; }
 
         protected string GetCurrentHostName()
         {
@@ -21,7 +22,8 @@ namespace Tcp_Lib
         {
             string hostName = Dns.GetHostName();
 #pragma warning disable 618
-            CurrentIpAddress = Dns.GetHostByName(hostName).AddressList[0];
+            var addressLit = Dns.GetHostByName(hostName).AddressList.ToList();
+            CurrentIpAddress = addressLit[addressLit.Count()-1];
 #pragma warning restore 618
         }
         public abstract void Dispose();
