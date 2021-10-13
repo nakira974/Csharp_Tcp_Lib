@@ -1,0 +1,12 @@
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\bin\Debug\net6.0\Tcp_Lib.deps.json
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\bin\Debug\net6.0\Tcp_Lib.dll
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\bin\Debug\net6.0\ref\Tcp_Lib.dll
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\bin\Debug\net6.0\Tcp_Lib.pdb
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.csproj.AssemblyReference.cache
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.GeneratedMSBuildEditorConfig.editorconfig
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.AssemblyInfoInputs.cache
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.AssemblyInfo.cs
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.csproj.CoreCompileInputs.cache
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.dll
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\ref\Tcp_Lib.dll
+D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\obj\Debug\net6.0\Tcp_Lib.pdb
