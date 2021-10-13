@@ -2,32 +2,9 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0-windows</TargetFramework>
+        <TargetFramework>net5.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="JeuxDuPendu.csproj" />
-      <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-      <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-      <Content Include="obj\Debug\JeuxDuPendu.csproj.CoreCompileInputs.cache" />
-      <Content Include="obj\Debug\JeuxDuPendu.csproj.FileListAbsolute.txt" />
-      <Content Include="obj\Debug\JeuxDuPendu.csproj.GenerateResource.cache" />
-      <Content Include="obj\Debug\JeuxDuPendu.csprojAssemblyReference.cache" />
-      <Content Include="obj\Debug\JeuxDuPendu.exe" />
-      <Content Include="obj\Debug\JeuxDuPendu.GameForm.resources" />
-      <Content Include="obj\Debug\JeuxDuPendu.pdb" />
-      <Content Include="obj\Debug\JeuxDuPendu.Properties.Resources.resources" />
-      <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Tcp_Lib\Tcp_Lib.csproj" />
-    </ItemGroup>
 
 </Project>
