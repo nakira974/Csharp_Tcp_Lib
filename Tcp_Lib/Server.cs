@@ -102,7 +102,7 @@ namespace Tcp_Lib
             {
                 _tcpClients.Add(ClientNumber, client);
                 ClientNumber++;
-                ClientDatas clientDatas = new ClientDatas();
+                GameDatas gameDatas = new GameDatas();
                 Action currentClientListenAction = async () =>
                 {
                     byte[] currentBuffer = new byte[DefaultReceiveBufferSize];
@@ -126,8 +126,7 @@ namespace Tcp_Lib
 
                                 if (currentStringBuilder != null)
                                 {
-                                    // Stream data is ready and converted to string
-                                    // Do some stuffs
+                                    //TO DO
                                 }
                             }
                         }
@@ -136,7 +135,7 @@ namespace Tcp_Lib
                             Console.WriteLine(e);
                             throw;
                         }
-                    } while (clientDatas.CurrentClientSignal != Signals.DISCONNECTED);
+                    } while (gameDatas.CurrentPlayerSignal != Signals.DISCONNECTED);
                 };
 
                 Task currentClientPool = Task.Run(currentClientListenAction);

@@ -13,6 +13,7 @@ namespace Tcp_Lib
         public IPAddress ServerAddress { get; set; }
         public Client()
         {
+            GetCurrentIpAddress();
             _ClientSocket = new TcpClient();
             _ClientSocket.SendBufferSize = DefaultSendBufferSize;
             _ClientSocket.ReceiveBufferSize = DefaultReceiveBufferSize;
@@ -52,11 +53,11 @@ namespace Tcp_Lib
         }
         
 
-        public override async Task ConnectAsync()
+        public  async Task ConnectAsync(string ipAddress)
         {
             try
             {
-                await _ClientSocket.ConnectAsync(ServerAddress, DefaultPort);
+                await _ClientSocket.ConnectAsync(ipAddress, DefaultPort);
             }
             catch (Exception e)
             {
@@ -66,12 +67,13 @@ namespace Tcp_Lib
             
         }
         
-        public async Task ConnectAsync(string ipAddress)
+        public override  async Task ConnectAsync()
         {
             try
-            {  string author = "Maxime";
+            {  
+                string author = "Maxime";
                 byte[] bytes = Encoding.ASCII.GetBytes(author);
-                await _ClientSocket.ConnectAsync(ipAddress, DefaultPort);
+                await _ClientSocket.ConnectAsync(CurrentIpAddress.ToString(), DefaultPort);
                 NetworkStream stream = _ClientSocket.GetStream();
                 stream.Write(bytes, 0, bytes.Length);
 

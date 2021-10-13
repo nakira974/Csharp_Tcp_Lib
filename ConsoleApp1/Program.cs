@@ -22,7 +22,7 @@ namespace ConsoleApp1
             else
             {
                 var client = new Client();
-                await client.ConnectAsync("192.168.1.1");
+                await client.ConnectAsync();
             }
            
          

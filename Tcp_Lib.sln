@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tcp_Lib", "Tcp_Lib\Tcp_Lib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{619542BC-1507-45C3-9F5A-CA81F117DF3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuDuPendu", "JeuDuPendu\JeuDuPendu.csproj", "{D364B384-DC31-4B2F-8B42-9B048A2E3157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{619542BC-1507-45C3-9F5A-CA81F117DF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619542BC-1507-45C3-9F5A-CA81F117DF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619542BC-1507-45C3-9F5A-CA81F117DF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D364B384-DC31-4B2F-8B42-9B048A2E3157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D364B384-DC31-4B2F-8B42-9B048A2E3157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D364B384-DC31-4B2F-8B42-9B048A2E3157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D364B384-DC31-4B2F-8B42-9B048A2E3157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

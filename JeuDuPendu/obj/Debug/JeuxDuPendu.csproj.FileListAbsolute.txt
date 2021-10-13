@@ -1,0 +1,10 @@
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\bin\Debug\JeuxDuPendu.exe.config
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\bin\Debug\JeuxDuPendu.exe
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\bin\Debug\JeuxDuPendu.pdb
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.csprojAssemblyReference.cache
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.GameForm.resources
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.Properties.Resources.resources
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.csproj.GenerateResource.cache
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.csproj.CoreCompileInputs.cache
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.exe
+C:\Users\MARQUES_T\Documents\Visual Studio 2019\JeuxDuPendu\JeuxDuPendu\obj\Debug\JeuxDuPendu.pdb
