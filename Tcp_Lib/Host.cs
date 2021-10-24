@@ -7,8 +7,8 @@ namespace Tcp_Lib
 {
     public abstract class Host : IHost<Host>
     {
-        protected const int DefaultSendTimeOut = 3600;
-        protected const int DefaultReceiveTimeOut = 10000;
+        protected const int DefaultSendTimeOut = 60000;
+        protected const int DefaultReceiveTimeOut = 60000;
         protected const int DefaultSendBufferSize = 1024;
         protected const int DefaultReceiveBufferSize = 4096;
         protected const int DefaultPort = 9001;

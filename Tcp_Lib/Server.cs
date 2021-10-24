@@ -114,14 +114,22 @@ namespace Tcp_Lib
                         {
                             
 
+                            StringBuilder username = new StringBuilder();
+                            StringBuilder currentStringBuilder = new StringBuilder();
+
                             if (clientNetworkStream.CanRead)
                             {
-                                StringBuilder currentStringBuilder = new StringBuilder();
+                                int bytesReaded = clientNetworkStream.Read(currentBuffer, 0, currentBuffer.Length);
+                                username.AppendFormat("{0}",
+                                    Encoding.ASCII.GetString(currentBuffer, 0, bytesReaded));
+                                Console.WriteLine($"Current username :{username.ToString()}");
+                                
                                 do // Start converting bytes to string
-                                {
-                                    int bytesReaded = clientNetworkStream.Read(currentBuffer, 0, currentBuffer.Length);
+                                { 
+                                    bytesReaded = clientNetworkStream.Read(currentBuffer, 0, currentBuffer.Length);
                                     currentStringBuilder.AppendFormat("{0}",
-                                        Encoding.ASCII.GetString(currentBuffer, 0, bytesReaded));
+                                        Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
+                                    Console.WriteLine($"{username.ToString()} said:{currentStringBuilder.ToString()}");
                                 } while (clientNetworkStream.DataAvailable); // Until stream data is available
 
                                 if (currentStringBuilder != null)

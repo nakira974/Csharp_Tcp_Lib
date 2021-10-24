@@ -57,7 +57,25 @@ namespace Tcp_Lib
         {
             try
             {
+                string author = "Maxime2";
+                byte[] bytes = Encoding.ASCII.GetBytes(author);
                 await _ClientSocket.ConnectAsync(ipAddress, DefaultPort);
+                NetworkStream stream = _ClientSocket.GetStream();
+                stream.Write(bytes, 0, bytes.Length);
+                while (true)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    ConsoleKeyInfo Input;
+                    Console.Write("Input Your Hidden String: ");
+                    do
+                    {
+                        Input = Console.ReadKey(true);
+                        sb.Append(Input.KeyChar);                            //<--- here
+                    } while (Input.Key != ConsoleKey.Enter);
+                    bytes = Encoding.Latin1.GetBytes(sb.ToString());
+                    stream.Write(bytes, 0, bytes.Length);
+                    
+                }
             }
             catch (Exception e)
             {
@@ -76,6 +94,7 @@ namespace Tcp_Lib
                 await _ClientSocket.ConnectAsync(CurrentIpAddress.ToString(), DefaultPort);
                 NetworkStream stream = _ClientSocket.GetStream();
                 stream.Write(bytes, 0, bytes.Length);
+                
 
 
             }

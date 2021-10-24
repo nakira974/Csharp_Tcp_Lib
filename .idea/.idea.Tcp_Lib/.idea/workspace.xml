@@ -14,120 +14,14 @@
   <component name="ChangeListManager">
     <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp1/ConsoleApp1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/ConsoleApp1.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp1/obj/ConsoleApp1.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/obj/ConsoleApp1.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp1/obj/Debug/net6.0/ConsoleApp1.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/obj/Debug/net6.0/ConsoleApp1.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp1/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp1/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp1/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApp1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleApp1/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp1/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/App.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/GameForm.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/GameForm.designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/GameForm.resx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/JeuDuPendu/JeuDuPendu.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JeuDuPendu/JeuDuPendu.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JeuDuPendu/JeuDuPendu.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/JeuDuPendu/JeuDuPendu.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/JeuxDuPendu.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/MyControls/HangmanViewer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JeuDuPendu/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Properties/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Properties/Resources.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Properties/Resources.resx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Properties/Settings.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Properties/Settings.settings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/Resources/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/bin/Debug/JeuxDuPendu.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/bin/Debug/JeuxDuPendu.exe.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/bin/Debug/JeuxDuPendu.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.GameForm.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.Properties.Resources.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.csproj.GenerateResource.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/JeuxDuPendu.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuDuPendu/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/Form1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/Form1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/JeuxDuPenduNetCore.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/JeuxDuPenduNetCore.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/Debug/net6.0-windows/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/Debug/net6.0-windows/JeuxDuPenduNetCore.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/Debug/net6.0-windows/JeuxDuPenduNetCore.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/Debug/net6.0-windows/JeuxDuPenduNetCore.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/Debug/net6.0-windows/JeuxDuPenduNetCore.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/Debug/net6.0-windows/JeuxDuPenduNetCore.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/JeuxDuPenduNetCore.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/JeuxDuPenduNetCore.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/JeuxDuPenduNetCore.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JeuxDuPenduNetCore/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Tcp_Lib.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Tcp_Lib.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Host.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Host.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Server.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/App.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/App.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/MainWindow.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/MainWindow.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/WpfApp1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/bin/Debug/net6.0-windows/WpfApp1.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/bin/Debug/net6.0-windows/WpfApp1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/bin/Debug/net6.0-windows/WpfApp1.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/bin/Debug/net6.0-windows/WpfApp1.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/bin/Debug/net6.0-windows/WpfApp1.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/bin/Debug/net6.0-windows/ref/WpfApp1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/App.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/MainWindow.baml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/MainWindow.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.g.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1_3t10ixfu_wpftmp.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1_3t10ixfu_wpftmp.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1_3t10ixfu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1_3t10ixfu_wpftmp.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1_MarkupCompile.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/WpfApp1_MarkupCompile.lref" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/Debug/net6.0-windows/ref/WpfApp1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/WpfApp1.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/WpfApp1.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/WpfApp1.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfApp1/obj/rider.project.restore.info" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,10 +35,13 @@
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/GameDatas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/JeuxDuPendu/JeuxDuPendu/JeuxDuPendu/App.config" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Server.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Host.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/IHost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/2F6/ManifestBasedResourceGroveler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6d27f961f364195b186a151c83dd18fa20070/267/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ece41c2b0205476bb4ded207fdd8b73525578/4/Console.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1z63TFKLV3pxvQqSfqiq2Ih165q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,14 +61,14 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.environmentSetup" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.JeuDuPendu">
+  <component name="RunManager" selected=".NET Project.ConsoleApp1">
     <configuration name="ConsoleApp1" type="DotNetProject" factoryName=".NET Project" singleton="false">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/ConsoleApp1/bin/Debug/net6.0/ConsoleApp1.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/ConsoleApp1/bin/Debug/net5.0-windows/ConsoleApp1.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConsoleApp1/bin/Debug/net6.0" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConsoleApp1/bin/Debug/net5.0-windows" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -181,7 +78,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="net6.0" />
+      <option name="PROJECT_TFM" value="net5.0-windows7.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -240,7 +137,9 @@
       <workItem from="1633605691042" duration="15611000" />
       <workItem from="1634049182501" duration="377000" />
       <workItem from="1634049621066" duration="4593000" />
-      <workItem from="1634105030184" duration="3451000" />
+      <workItem from="1634105030184" duration="5225000" />
+      <workItem from="1634141226206" duration="127000" />
+      <workItem from="1635102756646" duration="3841000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1633458955795</created>
@@ -298,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634106149335</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix target framework">
+      <created>1634108723260</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1634108723260</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +235,8 @@
     <MESSAGE value="Add generic to IHost interface + implemntation" />
     <MESSAGE value="add win form to app" />
     <MESSAGE value="remove old files" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove old files" />
+    <MESSAGE value="Fix target framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix target framework" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,17 +248,30 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Tcp_Lib/Server.cs</url>
-          <line>126</line>
-          <properties documentPath="D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\Server.cs" initialLine="126" containingFunctionPresentation="lambda expression inside method 'ListenAsync'">
+          <url>file://$PROJECT_DIR$/JeuDuPendu/MyControls/HangmanViewer.cs</url>
+          <line>78</line>
+          <properties documentPath="D:\RiderProjects\Csharp_Tcp_Lib\JeuDuPendu\MyControls\HangmanViewer.cs" initialLine="78" containingFunctionPresentation="method 'GetImageFromResourcesByStepNumber'">
             <startOffsets>
-              <option value="4444" />
+              <option value="1848" />
             </startOffsets>
             <endOffsets>
-              <option value="4477" />
+              <option value="1880" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Tcp_Lib/Client.cs</url>
+          <line>74</line>
+          <properties documentPath="D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\Client.cs" initialLine="75" containingFunctionPresentation="method 'ConnectAsync'">
+            <startOffsets>
+              <option value="2255" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2303" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
