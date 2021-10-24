@@ -16,7 +16,7 @@ namespace Tcp_Lib
         public long ClientNumber { get; set; }
         public List<Task> ServerTasks { get; set; }
 
-        public List<Task> ClientsPool { get; set; }
+        public List<ServerTask> ClientsPool { get; set; }
         public Signals CurrentServerSignal { get; set; }
         private Dictionary<long, TcpClient> _tcpClients { get; set; }
 
@@ -29,6 +29,7 @@ namespace Tcp_Lib
             Token = new CancellationToken(StopRequest);
             ClientNumber = 0;
             ServerTasks = new List<Task>();
+            ClientsPool = new List<ServerTask>();
             GetCurrentIpAddress();
             _serverSocket = new TcpListener(CurrentIpAddress, Host.DefaultPort);
             _serverSocket.Server.ReceiveBufferSize = DefaultReceiveBufferSize;
@@ -54,6 +55,7 @@ namespace Tcp_Lib
         public override async Task Start()
         {
             CurrentServerSignal = Signals.RUNNING;
+            
             try
             {
                 _serverSocket.Start();
@@ -62,8 +64,22 @@ namespace Tcp_Lib
                     var currentClient = await _serverSocket.AcceptTcpClientAsync();
                     NetworkStream clientNetworkStream = currentClient.GetStream();
                     Console.WriteLine($"Accepting client {currentClient.GetHashCode()}");
-                    ServerTasks.Add(ListenAsync(currentClient,clientNetworkStream, Token));
-                    ServerTasks.Add(BroadcastAsync(currentClient, Token));
+                    var currentListenTask = ListenAsync(currentClient, clientNetworkStream, Token);
+                    var currentBroadcastTask = BroadcastAsync(currentClient, Token);
+                    ServerTasks.Add(currentListenTask);
+                    ServerTasks.Add(currentBroadcastTask);
+                    ClientsPool.Add(new ServerTask()
+                    {
+                        Task = currentListenTask,
+                        TaskType = TaskType.LISTEN,
+                        ClientId = currentClient.GetHashCode()
+                    });
+                    ClientsPool.Add(new ServerTask()
+                    {
+                        Task = currentBroadcastTask,
+                        TaskType = TaskType.MONOCAST,
+                        ClientId = currentClient.GetHashCode()
+                    });
                     await Task.WhenAny(ServerTasks);
                 } while (!StopRequest);
             }
@@ -119,23 +135,24 @@ namespace Tcp_Lib
 
                             if (clientNetworkStream.CanRead)
                             {
-                                int bytesReaded = clientNetworkStream.Read(currentBuffer, 0, currentBuffer.Length);
+                                int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length);
                                 username.AppendFormat("{0}",
                                     Encoding.ASCII.GetString(currentBuffer, 0, bytesReaded));
                                 Console.WriteLine($"Current username :{username.ToString()}");
                                 
                                 do // Start converting bytes to string
                                 { 
-                                    bytesReaded = clientNetworkStream.Read(currentBuffer, 0, currentBuffer.Length);
+                                    bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length);
                                     currentStringBuilder.AppendFormat("{0}",
                                         Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                                    Console.WriteLine($"{username.ToString()} said:{currentStringBuilder.ToString()}");
+                                    if (currentStringBuilder != null)
+                                    {
+                                        //TO DO
+                                        Console.WriteLine($"{username.ToString()} said:{currentStringBuilder.ToString()}");
+                                    }
                                 } while (clientNetworkStream.DataAvailable); // Until stream data is available
 
-                                if (currentStringBuilder != null)
-                                {
-                                    //TO DO
-                                }
+                                
                             }
                         }
                         catch (Exception e)

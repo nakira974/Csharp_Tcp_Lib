@@ -73,7 +73,7 @@ namespace Tcp_Lib
                         sb.Append(Input.KeyChar);                            //<--- here
                     } while (Input.Key != ConsoleKey.Enter);
                     bytes = Encoding.Latin1.GetBytes(sb.ToString());
-                    stream.Write(bytes, 0, bytes.Length);
+                    await stream.WriteAsync(bytes, 0, bytes.Length);
                     
                 }
             }
