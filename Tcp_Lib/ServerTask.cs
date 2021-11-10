@@ -9,6 +9,7 @@ namespace Tcp_Lib
         BROADCAST
         
     }
+
     public class ServerTask
     {
         public Task Task { get; set; }

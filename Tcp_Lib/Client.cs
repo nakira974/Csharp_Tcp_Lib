@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Tcp_Lib
@@ -11,15 +15,34 @@ namespace Tcp_Lib
         private Host _hostImplementation;
         private TcpClient _ClientSocket { get; init; }
         public IPAddress ServerAddress { get; set; }
+
         public Client()
         {
+            GameDatas = new List<GameData>();
+            MessageList = new List<string>();
+            ClientStream = new Dictionary<int, NetworkStream>();
             GetCurrentIpAddress();
             _ClientSocket = new TcpClient();
             _ClientSocket.SendBufferSize = DefaultSendBufferSize;
             _ClientSocket.ReceiveBufferSize = DefaultReceiveBufferSize;
             _ClientSocket.ReceiveTimeout = DefaultReceiveTimeOut;
             _ClientSocket.SendTimeout = DefaultSendTimeOut;
-            
+
+        }
+
+        public Client(string senderName)
+        {
+            GameDatas = new List<GameData>();
+            MessageList = new List<string>();
+            SenderName = senderName;
+            ClientStream = new Dictionary<int, NetworkStream>();
+            GetCurrentIpAddress();
+            _ClientSocket = new TcpClient();
+            _ClientSocket.SendBufferSize = DefaultSendBufferSize;
+            _ClientSocket.ReceiveBufferSize = DefaultReceiveBufferSize;
+            _ClientSocket.ReceiveTimeout = DefaultReceiveTimeOut;
+            _ClientSocket.SendTimeout = DefaultSendTimeOut;
+
         }
 
         ~Client()
@@ -51,50 +74,64 @@ namespace Tcp_Lib
         {
             throw new NotImplementedException();
         }
-        
 
-        public  async Task ConnectAsync(string ipAddress)
+
+        public async Task ConnectAsync(string ipAddress)
         {
             try
             {
-                string author = "Maxime2";
-                byte[] bytes = Encoding.ASCII.GetBytes(author);
+                //Listen stream
+                byte[] bytes = Encoding.Latin1.GetBytes(SenderName);
                 await _ClientSocket.ConnectAsync(ipAddress, DefaultPort);
                 NetworkStream stream = _ClientSocket.GetStream();
-                stream.Write(bytes, 0, bytes.Length);
-                while (true)
-                {
-                    StringBuilder sb = new StringBuilder();
-                    ConsoleKeyInfo Input;
-                    Console.Write("Input Your Hidden String: ");
-                    do
-                    {
-                        Input = Console.ReadKey(true);
-                        sb.Append(Input.KeyChar);                            //<--- here
-                    } while (Input.Key != ConsoleKey.Enter);
-                    bytes = Encoding.Latin1.GetBytes(sb.ToString());
-                    await stream.WriteAsync(bytes, 0, bytes.Length);
-                    
-                }
+                await stream.WriteAsync(bytes, 0, bytes.Length);
+                ClientStream.Add(1, stream);
+                
+                //Json stream
+                var jsonClient = new TcpClient();
+                await jsonClient.ConnectAsync(ipAddress, DefaultPort);
+                bytes = Encoding.Latin1.GetBytes("application/json");
+                NetworkStream jsonStream = jsonClient.GetStream();
+                await jsonStream.WriteAsync(bytes, 0, bytes.Length);
+                ClientStream.Add(2, jsonStream);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 throw;
             }
-            
+
+        }
+
+        public async Task SendMessageAsync(string message)
+        {
+            byte[] bytes = new byte[] { };
+            NetworkStream stream = ClientStream[1];
+            StringBuilder sb = new StringBuilder();
+            ConsoleKeyInfo Input;
+            sb.Append(message);
+            bytes = Encoding.Latin1.GetBytes(sb.ToString());
+            await stream.WriteAsync(bytes, 0, bytes.Length);
         }
         
-        public override  async Task ConnectAsync()
+        public async Task SendJsonAsync(object obj)
+        {
+            string json = System.Text.Json.JsonSerializer.Serialize(obj);
+            byte[] bytes = Encoding.UTF8.GetBytes(json);
+            NetworkStream stream = ClientStream[2];
+            await stream.WriteAsync(bytes, 0, bytes.Length);
+        }
+
+        public override async Task ConnectAsync()
         {
             try
-            {  
+            {
                 string author = "Maxime";
                 byte[] bytes = Encoding.ASCII.GetBytes(author);
                 await _ClientSocket.ConnectAsync(CurrentIpAddress.ToString(), DefaultPort);
                 NetworkStream stream = _ClientSocket.GetStream();
                 stream.Write(bytes, 0, bytes.Length);
-                
+
 
 
             }
@@ -103,7 +140,7 @@ namespace Tcp_Lib
                 Console.WriteLine(e);
                 throw;
             }
-            
+
         }
 
         public override async Task DisconnectAsync()
@@ -117,7 +154,65 @@ namespace Tcp_Lib
                 Console.WriteLine(e);
                 throw;
             }
-            
+
+        }
+
+        public async Task ListenAsync()
+        {
+            byte[] currentBuffer = new byte[DefaultReceiveBufferSize];
+            NetworkStream clientNetworkStream = ClientStream[1];
+            do
+            {
+                if (ClientStream[1].CanRead)
+                {
+                    do // Start converting bytes to string
+                    {
+                        StringBuilder currentStringBuilder = new StringBuilder();
+
+                        int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length);
+                        currentStringBuilder.AppendFormat("{0}",
+                            Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
+                        if (currentStringBuilder != null)
+                        {
+                            //TO DO
+                            Console.WriteLine($"{currentStringBuilder.ToString()}");
+                            MessageList.Add($"\n{currentStringBuilder.ToString()}\n");
+                        }
+
+                    } while (ClientStream[1].CanRead);
+
+                }
+            } while (ClientStream[1].CanRead);
+        }
+        
+        public async Task RecieveJsonAsync()
+        {
+            byte[] currentBuffer = new byte[DefaultReceiveBufferSize];
+            NetworkStream clientNetworkStream = ClientStream[2];
+            do
+            {
+                if (ClientStream[2].CanRead)
+                {
+                    do // Start converting bytes to string
+                    {
+                        StringBuilder currentStringBuilder = new StringBuilder();
+
+                        int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length);
+                        currentStringBuilder.AppendFormat("{0}",
+                            Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
+                        if (currentStringBuilder != null)
+                        {
+                            string json = currentStringBuilder.ToString();
+                            MemoryStream mStrm= new MemoryStream( Encoding.UTF8.GetBytes( json ) );
+                            GameData gameData =
+                                await System.Text.Json.JsonSerializer.DeserializeAsync<GameData>(mStrm, cancellationToken:CancellationToken.None);
+                            GameDatas.Add(gameData);
+                        }
+
+                    } while (ClientStream[2].CanRead);
+
+                }
+            } while (ClientStream[2].CanRead);
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace Tcp_Lib
@@ -12,6 +15,11 @@ namespace Tcp_Lib
         protected const int DefaultSendBufferSize = 1024;
         protected const int DefaultReceiveBufferSize = 4096;
         protected const int DefaultPort = 9001;
+        [NotMapped] public  Dictionary<int, NetworkStream> ClientStream { get; set; }
+        [NotMapped] public List<string> MessageList { get; set; }
+        [NotMapped] public string SenderName { get; init; }
+        [NotMapped] public List<GameData> GameDatas { get; set; }
+        [NotMapped] public GameData CurrentGameData { get; set; }
         public IPAddress CurrentIpAddress { get; set; }
 
         protected string GetCurrentHostName()
