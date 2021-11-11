@@ -12,15 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Server.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/ServerTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/ServerTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Tcp_Lib.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Tcp_Lib.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +22,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Tcp_Lib/GameDatas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Server.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Host.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,6 +132,7 @@
       <workItem from="1635102756646" duration="7093000" />
       <workItem from="1636288575997" duration="370000" />
       <workItem from="1636289344835" duration="276000" />
+      <workItem from="1636563569066" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1633458955795</created>
@@ -219,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635109231866</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add listen/send json async client/server">
+      <created>1636563664724</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1636563664724</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +252,8 @@
     <MESSAGE value="Fix target framework" />
     <MESSAGE value="add winform and latin1 encoding" />
     <MESSAGE value="Write and Read =&gt; async" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write and Read =&gt; async" />
+    <MESSAGE value="add listen/send json async client/server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add listen/send json async client/server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

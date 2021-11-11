@@ -32,9 +32,14 @@ namespace Tcp_Lib
 
         public Client(string senderName)
         {
+            SenderName = senderName;
+            Users = new List<User>();
+            Users.Add(new User()
+            {
+                UserName = SenderName
+            });
             GameDatas = new List<GameData>();
             MessageList = new List<string>();
-            SenderName = senderName;
             ClientStream = new Dictionary<int, NetworkStream>();
             GetCurrentIpAddress();
             _ClientSocket = new TcpClient();
@@ -75,6 +80,16 @@ namespace Tcp_Lib
             throw new NotImplementedException();
         }
 
+        public async Task LaunchProcess()
+        {
+            List<Task> jobs = new List<Task>()
+            {
+                ListenAsync(),
+                RecieveJsonAsync()
+            };
+
+            await Task.WhenAny(jobs);
+        }
 
         public async Task ConnectAsync(string ipAddress)
         {
@@ -172,7 +187,7 @@ namespace Tcp_Lib
                         int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length);
                         currentStringBuilder.AppendFormat("{0}",
                             Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                        if (currentStringBuilder != null)
+                        if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
                         {
                             //TO DO
                             Console.WriteLine($"{currentStringBuilder.ToString()}");
@@ -200,7 +215,7 @@ namespace Tcp_Lib
                         int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length);
                         currentStringBuilder.AppendFormat("{0}",
                             Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                        if (currentStringBuilder != null)
+                        if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
                         {
                             string json = currentStringBuilder.ToString();
                             MemoryStream mStrm= new MemoryStream( Encoding.UTF8.GetBytes( json ) );

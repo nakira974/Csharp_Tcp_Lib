@@ -20,8 +20,10 @@ namespace Tcp_Lib
         [NotMapped] public string SenderName { get; init; }
         [NotMapped] public List<GameData> GameDatas { get; set; }
         [NotMapped] public GameData CurrentGameData { get; set; }
+        [NotMapped] public List<User> Users { get; set; }
         public IPAddress CurrentIpAddress { get; set; }
 
+        
         protected string GetCurrentHostName()
         {
             return Dns.GetHostName();
@@ -49,5 +51,10 @@ namespace Tcp_Lib
         }
         public abstract Task ConnectAsync();
         public abstract Task DisconnectAsync();
+
+        public struct User
+        {
+            public string UserName { get; init; }
+        }
     }
 }

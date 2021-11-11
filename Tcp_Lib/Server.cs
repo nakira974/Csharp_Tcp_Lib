@@ -68,6 +68,11 @@ namespace Tcp_Lib
         {
             GameDatas = new List<GameData>();
             SenderName = senderName;
+            Users = new List<User>();
+            Users.Add(new User()
+            {
+                UserName = SenderName
+            });
             MessageList = new List<string>();
             _tcpClients = new Dictionary<long, TcpClient>();
             _jsonClients = new Dictionary<long, TcpClient>();
@@ -123,7 +128,11 @@ namespace Tcp_Lib
                         }
                         else
                         {
-                            await LaunchMessageStream(currentClient, clientNetworkStream);
+                            Users.Add(new User()
+                            {
+                                UserName = clientType.ToString()
+                            });
+                            await LaunchMessageStream(currentClient, clientNetworkStream, clientType.ToString());
                         }
                     }
                    
@@ -170,12 +179,12 @@ namespace Tcp_Lib
                 TaskType = TaskType.LISTEN,
                 ClientId = currentClient.GetHashCode()
             });
-            await Task.WhenAny(ServerTasks);
+            await Task.WhenAll(ServerTasks);
         }
         
-        public async Task LaunchMessageStream(TcpClient currentClient, NetworkStream clientNetworkStream)
+        public async Task LaunchMessageStream(TcpClient currentClient, NetworkStream clientNetworkStream, string username)
         {
-            var currentListenTask = ListenAsync(currentClient, clientNetworkStream);
+            var currentListenTask = ListenAsync(currentClient, clientNetworkStream, username);
             ServerTasks.Add(currentListenTask);
             ClientsPool.Add(new ServerTask()
             {
@@ -184,9 +193,9 @@ namespace Tcp_Lib
                 ClientId = currentClient.GetHashCode()
             });
                             
-            await Task.WhenAny(ServerTasks);
+            await Task.WhenAll(ServerTasks);
         }
-        private async Task ListenAsync(TcpClient client, NetworkStream clientNetworkStream)
+        private async Task ListenAsync(TcpClient client, NetworkStream clientNetworkStream, string username)
         {
             try
             {
@@ -202,25 +211,19 @@ namespace Tcp_Lib
                     {
                         try
                         {
-                            
-
-                            StringBuilder username = new StringBuilder();
 
                             if (clientNetworkStream.CanRead)
                             {
-                                int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
-                                username.AppendFormat("{0}",
-                                    Encoding.ASCII.GetString(currentBuffer, 0, bytesReaded));
                                 Console.WriteLine($"Current username :{username.ToString()}");
                                 
                                 do // Start converting bytes to string
                                 { 
                                     StringBuilder currentStringBuilder = new StringBuilder();
 
-                                    bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
+                                    int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
                                     currentStringBuilder.AppendFormat("{0}",
                                         Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                                    if (currentStringBuilder != null)
+                                    if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
                                     {
                                         string msg =
                                             $"\n{username.ToString()} said :{currentStringBuilder.ToString()}\n";
@@ -282,7 +285,7 @@ namespace Tcp_Lib
                                     bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
                                     currentStringBuilder.AppendFormat("{0}",
                                         Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                                    if (currentStringBuilder != null)
+                                    if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
                                     {
                                         //TO DO
                                         
@@ -320,7 +323,29 @@ namespace Tcp_Lib
 
             try
             {
-                message = SenderName + " said : " + message;
+                
+                MessageList.Add(message);
+                byte[] bytes = Encoding.Latin1.GetBytes(message);
+
+                await foreach (var client in GetClientAsync(_tcpClients).WithCancellation(Token))
+                {
+                    await client.Client.SendAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+           
+        }
+        
+        public async Task SendMessageAsync(string message)
+        {
+
+            try
+            {
+                message = SenderName + " " + "said :" + message;
                 MessageList.Add(message);
                 byte[] bytes = Encoding.Latin1.GetBytes(message);
 
@@ -342,6 +367,7 @@ namespace Tcp_Lib
 
             try
             {
+                GameDatas.Add(obj as GameData);
                 string json = System.Text.Json.JsonSerializer.Serialize(obj);
                 byte[] bytes = Encoding.UTF8.GetBytes(json);
 
