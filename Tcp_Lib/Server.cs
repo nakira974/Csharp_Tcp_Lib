@@ -18,23 +18,17 @@ namespace Tcp_Lib
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; init; }
-        [NotMapped]
-        public bool StopRequest { get; set; }
+        [NotMapped] private bool StopRequest { get; set; }
         
-        [NotMapped]
-        public CancellationToken Token { get; set; }
+        [NotMapped] private CancellationToken Token { get; set; }
         
-        [NotMapped]
-        public long ClientNumber { get; set; }
+        [NotMapped] private long ClientNumber { get; set; }
         
-        [NotMapped]
-        public List<Task> ServerTasks { get; set; }
+        [NotMapped] private List<Task> ServerTasks { get; set; }
 
-        [NotMapped]
-        public List<ServerTask> ClientsPool { get; set; }
+        [NotMapped] private List<ServerTask> ClientsPool { get; set; }
         
-        [NotMapped]
-        public Signals CurrentServerSignal { get; set; }
+        [NotMapped] private Signals CurrentServerSignal { get; set; }
         
         [NotMapped]
         private Dictionary<long, TcpClient> _tcpClients { get; set; }
@@ -183,7 +177,7 @@ namespace Tcp_Lib
             _serverSocket.Server.Close();
         }
 
-        public async Task LaunchJsonStream(TcpClient currentClient, NetworkStream clientNetworkStream)
+        private async Task LaunchJsonStream(TcpClient currentClient, NetworkStream clientNetworkStream)
         {
             var currentJsonRecieveTask = ReceiveJsonAsync(currentClient, clientNetworkStream);
             ServerTasks.Add(currentJsonRecieveTask);

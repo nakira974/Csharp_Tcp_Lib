@@ -12,12 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="disconnected client now fixed">
-      <change afterPath="$PROJECT_DIR$/Tcp_Lib/GameData.cs" afterDir="false" />
+    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="add clear definition in IHost interface and migrate to await foreach anywhere">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Host.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Host.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/IHost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/IHost.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Server.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +30,9 @@
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Host.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/IHost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/SandboxFiles/Joxaduh/Rihecyp.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/2F6/ManifestBasedResourceGroveler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/RiderProjects/Csharp_Tcp_Lib/Tcp_Lib/Client.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/1F2/Encoding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ece41c2b0205476bb4ded207fdd8b73525578/4/Console.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6d27f961f364195b186a151c83dd18fa20070/267/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -144,7 +142,7 @@
       <workItem from="1636686022341" duration="45000" />
       <workItem from="1636686246515" duration="27000" />
       <workItem from="1636728051610" duration="1007000" />
-      <workItem from="1636739603752" duration="1311000" />
+      <workItem from="1636739603752" duration="2459000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1633458955795</created>
@@ -272,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636739613914</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add clear definition in IHost interface and migrate to await foreach anywhere">
+      <created>1636744628501</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1636744628501</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +318,8 @@
     <MESSAGE value="change client/server streaming" />
     <MESSAGE value="new disconnect for client/server" />
     <MESSAGE value="disconnected client now fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="disconnected client now fixed" />
+    <MESSAGE value="add clear definition in IHost interface and migrate to await foreach anywhere" />
+    <option name="LAST_COMMIT_MESSAGE" value="add clear definition in IHost interface and migrate to await foreach anywhere" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -332,13 +338,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Tcp_Lib/Server.cs</url>
-          <line>175</line>
+          <line>169</line>
           <properties documentPath="D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\Server.cs" initialLine="173" containingFunctionPresentation="lambda expression inside method 'ListenAsync'">
             <startOffsets>
-              <option value="6573" />
+              <option value="6532" />
             </startOffsets>
             <endOffsets>
-              <option value="6654" />
+              <option value="6613" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
