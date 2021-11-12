@@ -47,6 +47,7 @@ namespace Tcp_Lib
         
         public Server()
         {
+            DataRecieve = 0;
             GameDatas = new List<GameData>();
             MessageList = new List<string>();
             _tcpClients = new Dictionary<long, TcpClient>();
@@ -66,6 +67,7 @@ namespace Tcp_Lib
 
         public Server(string senderName)
         {
+            DataRecieve = 0;
             GameDatas = new List<GameData>();
             SenderName = senderName;
             Users = new List<User>();
@@ -293,8 +295,8 @@ namespace Tcp_Lib
                                         MemoryStream mStrm= new MemoryStream( Encoding.UTF8.GetBytes( json ) );
                                         GameData gameData =
                                             await System.Text.Json.JsonSerializer.DeserializeAsync<GameData>(mStrm, cancellationToken:Token);
-                                        GameDatas.Add(gameData);
-                                        await SendJsonAsync(json);
+                                        await SendJsonAsync(gameData);
+                                        DataRecieve++;
                                     }
                                 } while (clientNetworkStream.CanRead); // Until stream data is available
 
@@ -368,6 +370,27 @@ namespace Tcp_Lib
             try
             {
                 GameDatas.Add(obj as GameData);
+                string json = System.Text.Json.JsonSerializer.Serialize(obj);
+                byte[] bytes = Encoding.UTF8.GetBytes(json);
+
+                await foreach (var client in GetClientAsync(_jsonClients).WithCancellation(Token))
+                {
+                    await client.Client.SendAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+           
+        }
+        
+        public async Task SendJsonStreamAsync(object obj)
+        {
+
+            try
+            {
                 string json = System.Text.Json.JsonSerializer.Serialize(obj);
                 byte[] bytes = Encoding.UTF8.GetBytes(json);
 

@@ -18,6 +18,7 @@ namespace Tcp_Lib
 
         public Client()
         {
+            DataRecieve = 0;
             GameDatas = new List<GameData>();
             MessageList = new List<string>();
             ClientStream = new Dictionary<int, NetworkStream>();
@@ -32,6 +33,7 @@ namespace Tcp_Lib
 
         public Client(string senderName)
         {
+            DataRecieve = 0;
             SenderName = senderName;
             Users = new List<User>();
             Users.Add(new User()
@@ -222,6 +224,7 @@ namespace Tcp_Lib
                             GameData gameData =
                                 await System.Text.Json.JsonSerializer.DeserializeAsync<GameData>(mStrm, cancellationToken:CancellationToken.None);
                             GameDatas.Add(gameData);
+                            DataRecieve++;
                         }
 
                     } while (ClientStream[2].CanRead);

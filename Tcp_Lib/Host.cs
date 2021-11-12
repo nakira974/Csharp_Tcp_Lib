@@ -15,6 +15,7 @@ namespace Tcp_Lib
         protected const int DefaultSendBufferSize = 1024;
         protected const int DefaultReceiveBufferSize = 4096;
         protected const int DefaultPort = 9001;
+        public int DataRecieve { get; set; }
         [NotMapped] public List<User> Users { get; set; }
         [NotMapped] public  Dictionary<int, NetworkStream> ClientStream { get; set; }
         [NotMapped] public List<string> MessageList { get; set; }
