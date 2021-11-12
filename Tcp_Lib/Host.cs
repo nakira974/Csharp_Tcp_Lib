@@ -15,12 +15,12 @@ namespace Tcp_Lib
         protected const int DefaultSendBufferSize = 1024;
         protected const int DefaultReceiveBufferSize = 4096;
         protected const int DefaultPort = 9001;
+        [NotMapped] public List<User> Users { get; set; }
         [NotMapped] public  Dictionary<int, NetworkStream> ClientStream { get; set; }
         [NotMapped] public List<string> MessageList { get; set; }
         [NotMapped] public string SenderName { get; init; }
         [NotMapped] public List<GameData> GameDatas { get; set; }
         [NotMapped] public GameData CurrentGameData { get; set; }
-        [NotMapped] public List<User> Users { get; set; }
         public IPAddress CurrentIpAddress { get; set; }
 
         
