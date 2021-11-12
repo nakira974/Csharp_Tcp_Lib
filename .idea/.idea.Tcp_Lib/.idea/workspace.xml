@@ -12,14 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="change client/server streaming">
+    <list default="true" id="49478c5f-050d-4ef3-a3e7-b7bda7a3cc26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tcp_Lib/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tcp_Lib/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/Server.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/Tcp_Lib.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tcp_Lib/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Tcp_Lib/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,7 @@
       <workItem from="1636673014471" duration="631000" />
       <workItem from="1636686022341" duration="45000" />
       <workItem from="1636686246515" duration="27000" />
-      <workItem from="1636728051610" duration="669000" />
+      <workItem from="1636728051610" duration="1007000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1633458955795</created>
@@ -260,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636728092083</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="new disconnect for client/server">
+      <created>1636735351805</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1636735351805</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +306,8 @@
     <MESSAGE value="add user struct" />
     <MESSAGE value="removed unsued files" />
     <MESSAGE value="change client/server streaming" />
-    <option name="LAST_COMMIT_MESSAGE" value="change client/server streaming" />
+    <MESSAGE value="new disconnect for client/server" />
+    <option name="LAST_COMMIT_MESSAGE" value="new disconnect for client/server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -318,13 +326,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Tcp_Lib/Server.cs</url>
-          <line>174</line>
+          <line>175</line>
           <properties documentPath="D:\RiderProjects\Csharp_Tcp_Lib\Tcp_Lib\Server.cs" initialLine="173" containingFunctionPresentation="lambda expression inside method 'ListenAsync'">
             <startOffsets>
-              <option value="6463" />
+              <option value="6493" />
             </startOffsets>
             <endOffsets>
-              <option value="6544" />
+              <option value="6574" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />

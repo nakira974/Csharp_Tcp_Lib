@@ -164,7 +164,16 @@ namespace Tcp_Lib
         {
             try
             {
-                _ClientSocket.Client.Close();
+                await SendMessageAsync("0xffff");
+                ClientStream[1].Socket.DisconnectAsync(new SocketAsyncEventArgs(false));
+                ClientStream[1].Close();
+                ClientStream[1].Socket.Close();
+                await SendJsonAsync(new GameData()
+                {
+                    CurrentPlayerSignal = Signals.DISCONNECTED
+                });
+                ClientStream[2].Socket.DisconnectAsync(new SocketAsyncEventArgs(false));
+                ClientStream[2].Close();
                 ClientStream[2].Socket.Close();
             }
             catch (Exception e)

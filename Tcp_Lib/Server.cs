@@ -170,6 +170,16 @@ namespace Tcp_Lib
 
         public override async Task DisconnectAsync()
         {
+            foreach (var client in _jsonClients)
+            {
+                client.Value.Client.DisconnectAsync(new SocketAsyncEventArgs(true));
+            }
+
+            foreach (var client in _tcpClients)
+            {
+                client.Value.Client.DisconnectAsync(new SocketAsyncEventArgs(true));
+
+            }
             _serverSocket.Server.Close();
         }
 
@@ -204,8 +214,8 @@ namespace Tcp_Lib
             try
             {
                 _tcpClients.Add(ClientNumber, client);
-                ClientNumber++;
                 long currentClientId = ClientNumber;
+                ClientNumber++;
                 GameData gameData = new GameData();
                 Action currentClientListenAction = async () =>
                 {
@@ -225,16 +235,29 @@ namespace Tcp_Lib
                                 { 
                                     StringBuilder currentStringBuilder = new StringBuilder();
 
-                                    int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
-                                    currentStringBuilder.AppendFormat("{0}",
-                                        Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                                    if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
+                                    if (clientNetworkStream.Socket.Connected)
                                     {
-                                        string msg =
-                                            $"\n{user.UserName} said :{currentStringBuilder.ToString()}\n";
-                                        await BroadcastAsync(msg);
+                                        int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
+                                        currentStringBuilder.AppendFormat("{0}",
+                                            Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
+                                        if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
+                                        {
+                                            string msg =
+                                                $"\n{user.UserName} said :{currentStringBuilder.ToString()}\n";
+                                            if (currentStringBuilder.ToString() == "0xffff")
+                                            {
+                                                _tcpClients[currentClientId].Dispose();
+                                                _tcpClients.Remove(currentClientId);
+                                                Users.Remove(user);
+                                            }
+                                            else
+                                            {
+                                                await BroadcastAsync(msg);
+                                            }
+                                        }
                                     }
-                                } while (clientNetworkStream.CanRead); // Until stream data is available
+                                   
+                                } while (clientNetworkStream.Socket.Connected); // Until stream data is available
 
                                 
                             }
@@ -244,10 +267,11 @@ namespace Tcp_Lib
                             Console.WriteLine(e);
                             throw;
                         }
+
+                        
                     } while (clientNetworkStream.Socket.Connected);
 
-                    _tcpClients.Remove(currentClientId);
-                    Users.Remove(user);
+                    
                 };
 
                 Task currentClientPool = Task.Run(currentClientListenAction);
@@ -264,8 +288,8 @@ namespace Tcp_Lib
             try
             {
                 _jsonClients.Add(ClientNumber, client);
-                ClientNumber++;
                 long currentClientId = ClientNumber;
+                ClientNumber++;
                 GameData gameData = new GameData();
                 Action currentClientListenAction = async () =>
                 {
@@ -282,32 +306,39 @@ namespace Tcp_Lib
 
                             if (clientNetworkStream.CanRead)
                             {
-                                int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
-                                username.AppendFormat("{0}",
-                                    Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                                Console.WriteLine($"Current username :{username.ToString()}");
-                                
                                 do // Start converting bytes to string
                                 { 
                                     StringBuilder currentStringBuilder = new StringBuilder();
 
-                                    bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
-                                    currentStringBuilder.AppendFormat("{0}",
-                                        Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
-                                    if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
+                                    if (clientNetworkStream.Socket.Connected)
                                     {
-                                        //TO DO
+                                        int bytesReaded = await clientNetworkStream.ReadAsync(currentBuffer, 0, currentBuffer.Length, Token);
+                                        currentStringBuilder.AppendFormat("{0}",
+                                            Encoding.Latin1.GetString(currentBuffer, 0, bytesReaded));
+                                        if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
+                                        {
+                                            //TO DO
                                         
-                                        string json = currentStringBuilder.ToString();
-                                        MemoryStream mStrm= new MemoryStream( Encoding.UTF8.GetBytes( json ) );
-                                        GameData gameData =
-                                            await System.Text.Json.JsonSerializer.DeserializeAsync<GameData>(mStrm, cancellationToken:Token);
-                                        await SendJsonAsync(gameData);
-                                        DataRecieve++;
+                                            string json = currentStringBuilder.ToString();
+                                            MemoryStream mStrm= new MemoryStream( Encoding.UTF8.GetBytes( json ) );
+                                            GameData gameData =
+                                                await System.Text.Json.JsonSerializer.DeserializeAsync<GameData>(mStrm, cancellationToken:Token);
+                                            DataRecieve++;
+                                            if (gameData.CurrentPlayerSignal == Signals.DISCONNECTED)
+                                            {
+                                                _jsonClients[currentClientId].Dispose();
+                                                _jsonClients.Remove(currentClientId);
+                                            }
+                                            else
+                                            {
+                                                await SendJsonAsync(gameData);
+                                            }
+                                        }
                                     }
+
                                 } while (clientNetworkStream.Socket.Connected); // Until stream data is available
 
-                                _jsonClients.Remove(currentClientId);
+                                
                             }
                             
                             
