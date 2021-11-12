@@ -87,7 +87,7 @@ namespace Tcp_Lib
             List<Task> jobs = new List<Task>()
             {
                 ListenAsync(),
-                RecieveJsonAsync()
+                ReceiveJsonAsync()
             };
 
             await Task.WhenAny(jobs);
@@ -120,7 +120,7 @@ namespace Tcp_Lib
 
         }
 
-        public async Task SendMessageAsync(string message)
+        public override async Task SendMessageAsync(string message)
         {
             byte[] bytes = new byte[] { };
             NetworkStream stream = ClientStream[1];
@@ -131,7 +131,7 @@ namespace Tcp_Lib
             await stream.WriteAsync(bytes, 0, bytes.Length);
         }
         
-        public async Task SendJsonAsync(object obj)
+        public override async Task SendJsonAsync(object obj)
         {
             string json = System.Text.Json.JsonSerializer.Serialize(obj);
             byte[] bytes = Encoding.UTF8.GetBytes(json);
@@ -184,7 +184,7 @@ namespace Tcp_Lib
 
         }
 
-        public async Task ListenAsync()
+        public override async Task ListenAsync()
         {
             byte[] currentBuffer = new byte[DefaultReceiveBufferSize];
             NetworkStream clientNetworkStream = ClientStream[1];
@@ -212,7 +212,7 @@ namespace Tcp_Lib
             } while (ClientStream[1].CanRead);
         }
         
-        public async Task RecieveJsonAsync()
+        public override async Task ReceiveJsonAsync()
         {
             byte[] currentBuffer = new byte[DefaultReceiveBufferSize];
             NetworkStream clientNetworkStream = ClientStream[2];

@@ -170,14 +170,14 @@ namespace Tcp_Lib
 
         public override async Task DisconnectAsync()
         {
-            foreach (var client in _jsonClients)
+            await foreach (var client in GetClientAsync(_jsonClients).WithCancellation(Token))
             {
-                client.Value.Client.DisconnectAsync(new SocketAsyncEventArgs(true));
+                client.Client.DisconnectAsync(new SocketAsyncEventArgs(true));
             }
 
-            foreach (var client in _tcpClients)
+            await foreach (var client in GetClientAsync(_tcpClients).WithCancellation(Token))
             {
-                client.Value.Client.DisconnectAsync(new SocketAsyncEventArgs(true));
+                client.Client.DisconnectAsync(new SocketAsyncEventArgs(true));
 
             }
             _serverSocket.Server.Close();
@@ -185,7 +185,7 @@ namespace Tcp_Lib
 
         public async Task LaunchJsonStream(TcpClient currentClient, NetworkStream clientNetworkStream)
         {
-            var currentJsonRecieveTask = RecieveJsonAsync(currentClient, clientNetworkStream);
+            var currentJsonRecieveTask = ReceiveJsonAsync(currentClient, clientNetworkStream);
             ServerTasks.Add(currentJsonRecieveTask);
             ClientsPool.Add(new ServerTask()
             {
@@ -282,8 +282,8 @@ namespace Tcp_Lib
                 throw;
             }
         }
-        
-        private async Task RecieveJsonAsync(TcpClient client, NetworkStream clientNetworkStream)
+
+        private async Task ReceiveJsonAsync(TcpClient client, NetworkStream clientNetworkStream)
         {
             try
             {
@@ -360,7 +360,7 @@ namespace Tcp_Lib
             }
         }
 
-        public async Task BroadcastAsync(string message)
+        private async Task BroadcastAsync(string message)
         {
 
             try
@@ -382,7 +382,7 @@ namespace Tcp_Lib
            
         }
         
-        public async Task SendMessageAsync(string message)
+        public override async Task SendMessageAsync(string message)
         {
 
             try
@@ -404,7 +404,7 @@ namespace Tcp_Lib
            
         }
         
-        public async Task SendJsonAsync(object obj)
+        public override async Task SendJsonAsync(object obj)
         {
 
             try
@@ -425,7 +425,17 @@ namespace Tcp_Lib
             }
            
         }
-        
+
+        public override async Task ReceiveJsonAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override async Task ListenAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task SendJsonStreamAsync(object obj)
         {
 
@@ -447,12 +457,6 @@ namespace Tcp_Lib
            
         }
 
-        private async IAsyncEnumerable<TcpClient> GetClientAsync(Dictionary<long, TcpClient> clients)
-        {
-            foreach (var client in clients)
-            {
-                yield return client.Value;
-            }
-        }
+        
     }
 }

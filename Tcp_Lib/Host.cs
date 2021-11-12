@@ -52,7 +52,20 @@ namespace Tcp_Lib
         }
         public abstract Task ConnectAsync();
         public abstract Task DisconnectAsync();
+        public abstract Task SendMessageAsync(string message);
+        public abstract Task SendJsonAsync(object obj);
+        public abstract Task ReceiveJsonAsync();
+        public abstract Task ListenAsync();
 
+        protected async IAsyncEnumerable<TcpClient> GetClientAsync(Dictionary<long, TcpClient> clients)
+        {
+            foreach (var client in clients)
+            {
+                yield return client.Value;
+            }
+        }
+        
+        
         public struct User
         {
             public string UserName { get; init; }
