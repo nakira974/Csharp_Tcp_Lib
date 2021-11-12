@@ -79,7 +79,7 @@ namespace Tcp_Lib
 
         public override async Task Stop()
         {
-            throw new NotImplementedException();
+            await DisconnectAsync();
         }
 
         public async Task LaunchProcess()
@@ -165,6 +165,7 @@ namespace Tcp_Lib
             try
             {
                 _ClientSocket.Client.Close();
+                ClientStream[2].Socket.Close();
             }
             catch (Exception e)
             {

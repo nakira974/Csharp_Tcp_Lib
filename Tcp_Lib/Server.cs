@@ -130,11 +130,12 @@ namespace Tcp_Lib
                         }
                         else
                         {
-                            Users.Add(new User()
+                            User currentUser = new User()
                             {
                                 UserName = clientType.ToString()
-                            });
-                            await LaunchMessageStream(currentClient, clientNetworkStream, clientType.ToString());
+                            };
+                            Users.Add(currentUser);
+                            await LaunchMessageStream(currentClient, clientNetworkStream, currentUser);
                         }
                     }
                    
@@ -159,6 +160,7 @@ namespace Tcp_Lib
         public override async Task Stop()
         {
             StopRequest = true;
+            await DisconnectAsync();
         }
 
         public override async Task ConnectAsync()
@@ -168,7 +170,7 @@ namespace Tcp_Lib
 
         public override async Task DisconnectAsync()
         {
-            throw new NotImplementedException();
+            _serverSocket.Server.Close();
         }
 
         public async Task LaunchJsonStream(TcpClient currentClient, NetworkStream clientNetworkStream)
@@ -184,9 +186,9 @@ namespace Tcp_Lib
             await Task.WhenAll(ServerTasks);
         }
         
-        public async Task LaunchMessageStream(TcpClient currentClient, NetworkStream clientNetworkStream, string username)
+        public async Task LaunchMessageStream(TcpClient currentClient, NetworkStream clientNetworkStream, User user)
         {
-            var currentListenTask = ListenAsync(currentClient, clientNetworkStream, username);
+            var currentListenTask = ListenAsync(currentClient, clientNetworkStream, user);
             ServerTasks.Add(currentListenTask);
             ClientsPool.Add(new ServerTask()
             {
@@ -197,12 +199,13 @@ namespace Tcp_Lib
                             
             await Task.WhenAll(ServerTasks);
         }
-        private async Task ListenAsync(TcpClient client, NetworkStream clientNetworkStream, string username)
+        private async Task ListenAsync(TcpClient client, NetworkStream clientNetworkStream, User user)
         {
             try
             {
                 _tcpClients.Add(ClientNumber, client);
                 ClientNumber++;
+                long currentClientId = ClientNumber;
                 GameData gameData = new GameData();
                 Action currentClientListenAction = async () =>
                 {
@@ -216,7 +219,7 @@ namespace Tcp_Lib
 
                             if (clientNetworkStream.CanRead)
                             {
-                                Console.WriteLine($"Current username :{username.ToString()}");
+                                Console.WriteLine($"Current username :{user.UserName}");
                                 
                                 do // Start converting bytes to string
                                 { 
@@ -228,7 +231,7 @@ namespace Tcp_Lib
                                     if (!string.IsNullOrEmpty(currentStringBuilder.ToString()))
                                     {
                                         string msg =
-                                            $"\n{username.ToString()} said :{currentStringBuilder.ToString()}\n";
+                                            $"\n{user.UserName} said :{currentStringBuilder.ToString()}\n";
                                         await BroadcastAsync(msg);
                                     }
                                 } while (clientNetworkStream.CanRead); // Until stream data is available
@@ -241,7 +244,10 @@ namespace Tcp_Lib
                             Console.WriteLine(e);
                             throw;
                         }
-                    } while (gameData.CurrentPlayerSignal != Signals.DISCONNECTED);
+                    } while (clientNetworkStream.Socket.Connected);
+
+                    _tcpClients.Remove(currentClientId);
+                    Users.Remove(user);
                 };
 
                 Task currentClientPool = Task.Run(currentClientListenAction);
@@ -259,6 +265,7 @@ namespace Tcp_Lib
             {
                 _jsonClients.Add(ClientNumber, client);
                 ClientNumber++;
+                long currentClientId = ClientNumber;
                 GameData gameData = new GameData();
                 Action currentClientListenAction = async () =>
                 {
@@ -298,10 +305,12 @@ namespace Tcp_Lib
                                         await SendJsonAsync(gameData);
                                         DataRecieve++;
                                     }
-                                } while (clientNetworkStream.CanRead); // Until stream data is available
+                                } while (clientNetworkStream.Socket.Connected); // Until stream data is available
 
-                                
+                                _jsonClients.Remove(currentClientId);
                             }
+                            
+                            
                         }
                         catch (Exception e)
                         {
