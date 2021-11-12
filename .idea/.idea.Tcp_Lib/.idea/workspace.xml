@@ -28,9 +28,11 @@
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/IHost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tcp_Lib/Client.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/2F6/ManifestBasedResourceGroveler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleApp1/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/1F2/Encoding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ece41c2b0205476bb4ded207fdd8b73525578/4/Console.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6d27f961f364195b186a151c83dd18fa20070/267/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/RiderProjects/Csharp_Tcp_Lib/Tcp_Lib/Host.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/879e64150fe442079fadd555ede677aa8f5788/1D0/Task.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1z63TFKLV3pxvQqSfqiq2Ih165q" />
@@ -134,6 +136,7 @@
       <workItem from="1636289344835" duration="276000" />
       <workItem from="1636563569066" duration="104000" />
       <workItem from="1636673014471" duration="631000" />
+      <workItem from="1636686022341" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1633458955795</created>
@@ -226,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636673035926</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add user struct">
+      <created>1636686045203</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1636686045203</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +272,8 @@
     <MESSAGE value="Write and Read =&gt; async" />
     <MESSAGE value="add listen/send json async client/server" />
     <MESSAGE value="fix username list, json send" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix username list, json send" />
+    <MESSAGE value="add user struct" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user struct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
